@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '8.0'
+
+target 'LWPopupViewController_Example' do
+  pod 'LWPopupViewController', :path => '../'
+
+  target 'LWPopupViewController_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
