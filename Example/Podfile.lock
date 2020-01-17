@@ -1,15 +1,22 @@
 PODS:
-  - LWPopupViewController (0.1.0)
+  - LWPopupViewController (0.1.0):
+    - Masonry
+  - Masonry (1.1.0)
 
 DEPENDENCIES:
   - LWPopupViewController (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Masonry
 
 EXTERNAL SOURCES:
   LWPopupViewController:
     :path: "../"
 
 SPEC CHECKSUMS:
-  LWPopupViewController: 01de6379cc950abcf09d64ec66791c8589c20786
+  LWPopupViewController: 8f4285da2b39da8817dad516e3f3bdef5ef77cd8
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: 7f5a24a154528c7f99072cbd14e063ceb14ea80e
 
