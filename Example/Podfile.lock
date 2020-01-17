@@ -1,0 +1,16 @@
+PODS:
+  - LWPopupViewController (0.1.0)
+
+DEPENDENCIES:
+  - LWPopupViewController (from `../`)
+
+EXTERNAL SOURCES:
+  LWPopupViewController:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  LWPopupViewController: 01de6379cc950abcf09d64ec66791c8589c20786
+
+PODFILE CHECKSUM: 7f5a24a154528c7f99072cbd14e063ceb14ea80e
+
+COCOAPODS: 1.8.4

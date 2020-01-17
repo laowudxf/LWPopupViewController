@@ -37,8 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		16F6F77783154DC5796DF7E0 /* LWPopupViewController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = LWPopupViewController.podspec; path = ../LWPopupViewController.podspec; sourceTree = "<group>"; };
-		18870F58D5FA3C7CD961B541 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		16F6F77783154DC5796DF7E0 /* LWPopupViewController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LWPopupViewController.podspec; path = ../LWPopupViewController.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		18870F58D5FA3C7CD961B541 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		4B1A836D05A07455D0688B7B /* Pods-LWPopupViewController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LWPopupViewController_Example.release.xcconfig"; path = "Target Support Files/Pods-LWPopupViewController_Example/Pods-LWPopupViewController_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* LWPopupViewController_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LWPopupViewController_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -66,7 +66,7 @@
 		8A9CDD98913F6AC38FBCA8FC /* Pods-LWPopupViewController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LWPopupViewController_Tests.release.xcconfig"; path = "Target Support Files/Pods-LWPopupViewController_Tests/Pods-LWPopupViewController_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		AF1023CD9FC11EC4324EB57C /* Pods-LWPopupViewController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LWPopupViewController_Example.debug.xcconfig"; path = "Target Support Files/Pods-LWPopupViewController_Example/Pods-LWPopupViewController_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		E7A810D212172E359EFB384C /* Pods-LWPopupViewController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LWPopupViewController_Tests.debug.xcconfig"; path = "Target Support Files/Pods-LWPopupViewController_Tests/Pods-LWPopupViewController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		ED48A888F2A6033DC43ED1B2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		ED48A888F2A6033DC43ED1B2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +103,6 @@
 				E7A810D212172E359EFB384C /* Pods-LWPopupViewController_Tests.debug.xcconfig */,
 				8A9CDD98913F6AC38FBCA8FC /* Pods-LWPopupViewController_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -258,6 +257,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
