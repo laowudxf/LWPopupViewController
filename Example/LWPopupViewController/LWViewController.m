@@ -94,7 +94,7 @@
         [vc.view mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.tableView).offset(20);
             make.top.equalTo(self.mas_topLayoutGuideBottom).offset(20);
-            make.width.mas_equalTo(200);
+            make.width.mas_equalTo(250);
         }];
     } else if (indexPath.row == 3) {
         UIView *view = [UIView new];
@@ -108,10 +108,6 @@
         [pop showWithViewController:self.navigationController];
     } else if (indexPath.row == 4) {
 
-//        [pop showWithViewController:self];
-        
-        pop.shouldDisableBgTap = false;
-//        [[UIApplication sharedApplication].keyWindow addSubview:pop.view];
         [pop showWithView:[UIApplication sharedApplication].keyWindow];
         //注意！！！---如果pop没有被持有则在方法末尾被直接释放，可以方便的调用这个方法让pop被对象持有
         [pop convenRetain:self];

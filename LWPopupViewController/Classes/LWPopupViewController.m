@@ -61,7 +61,9 @@
             self.view.alpha = 0;
             [UIView animateWithDuration:0.2 animations:^{
                 self.view.alpha = 1;
-                [self endAppearanceTransition];
+                if ([self.parentViewController isKindOfClass:[UINavigationController class]]) {
+                    [self endAppearanceTransition];
+                }
             }];
         } else {
         }
@@ -107,19 +109,6 @@
     }
 }
 
-
-//- (void)willMoveToParentViewController:(UIViewController *)parent {
-//    if (parent) {
-//        self.view.alpha = 0;
-//        [UIView animateWithDuration:0.2 animations:^{
-//            self.view.alpha = 1;
-//            if ([parent isKindOfClass:UINavigationController.class]) {
-//                [self endAppearanceTransition];
-//            }
-//        }];
-//    } else {
-//    }
-//}
 
 -(void)hidden {
     kWeakSelf(self);
