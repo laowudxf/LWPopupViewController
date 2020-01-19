@@ -10,6 +10,7 @@
 #import "LWPopupViewController.h"
 #import "Masonry.h"
 #import "CustomAlertViewController.h"
+#import "CustomViewController.h"
 
 #define kWeakSelf(type)  __weak typeof(type) weak##type = type;
 #define kStrongSelf(type) __strong typeof(type) type = weak##type;
@@ -36,6 +37,7 @@
         @"相对定位ViewController",
         @"居中View",
         @"直接加载到KeyWindow上",
+        @"显示ViewController 带navigation",
     ];
     
     self.tableView.delegate = self;
@@ -111,6 +113,18 @@
         [pop showWithView:[UIApplication sharedApplication].keyWindow];
         //注意！！！---如果pop没有被持有则在方法末尾被直接释放，可以方便的调用这个方法让pop被对象持有
         [pop convenRetain:self];
+    } else if (indexPath.row == 5) {
+        pop = [LWPopupViewController new];
+        CustomViewController *a = [CustomViewController new];
+        
+        UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:a];
+        a.title = @"test";
+        nav.view.layer.cornerRadius = 10;
+        [pop addContentController:nav];
+        [nav.view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(300, 400));
+        }];
+        [pop showWithViewController:self.navigationController];
     }
 }
 

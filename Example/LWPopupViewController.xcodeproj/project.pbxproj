@@ -26,6 +26,7 @@
 		72056D1C23D20F63007E4D93 /* CustomAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72056D1A23D20F63007E4D93 /* CustomAlertViewController.m */; };
 		72056D1D23D20F63007E4D93 /* CustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72056D1B23D20F63007E4D93 /* CustomAlertViewController.xib */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		88334C9223D4494400BBEA05 /* CustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88334C9123D4494400BBEA05 /* CustomViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		7E1001383D57872ACAE38B7B /* Pods_LWPopupViewController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LWPopupViewController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8337D9CD0BD2B0060EFFC976 /* Pods_LWPopupViewController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LWPopupViewController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		88334C9023D4494400BBEA05 /* CustomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomViewController.h; sourceTree = "<group>"; };
+		88334C9123D4494400BBEA05 /* CustomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomViewController.m; sourceTree = "<group>"; };
 		8A9CDD98913F6AC38FBCA8FC /* Pods-LWPopupViewController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LWPopupViewController_Tests.release.xcconfig"; path = "Target Support Files/Pods-LWPopupViewController_Tests/Pods-LWPopupViewController_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		AF1023CD9FC11EC4324EB57C /* Pods-LWPopupViewController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LWPopupViewController_Example.debug.xcconfig"; path = "Target Support Files/Pods-LWPopupViewController_Example/Pods-LWPopupViewController_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		E7A810D212172E359EFB384C /* Pods-LWPopupViewController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LWPopupViewController_Tests.debug.xcconfig"; path = "Target Support Files/Pods-LWPopupViewController_Tests/Pods-LWPopupViewController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 				72056D1923D20F63007E4D93 /* CustomAlertViewController.h */,
 				72056D1A23D20F63007E4D93 /* CustomAlertViewController.m */,
 				72056D1B23D20F63007E4D93 /* CustomAlertViewController.xib */,
+				88334C9023D4494400BBEA05 /* CustomViewController.h */,
+				88334C9123D4494400BBEA05 /* CustomViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -384,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72056D1C23D20F63007E4D93 /* CustomAlertViewController.m in Sources */,
+				88334C9223D4494400BBEA05 /* CustomViewController.m in Sources */,
 				6003F59E195388D20070C39A /* LWAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* LWViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
