@@ -15,14 +15,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) void (^dismissBlock)(void);
 @property (nonatomic, assign) BOOL shouldDisableBgTap;
 
+
 -(void)addContentView:(UIView *)view;
+
 -(void)addContentController:(UIViewController *)controller;
 
 
 
 
+/// 把popupViewController加载到ViewController上面
 -(void)showWithViewController:(UIViewController *)viewController;
+
+/// 把popupViewController加载到View上面
 -(void)showWithView:(UIView *)view;
+
+///隐藏
 -(void)hidden;
 
 //若直接add pop.view 如果pop没有强引用 则会立马释放掉，可以调用一下这个方法，便利的添加强引用

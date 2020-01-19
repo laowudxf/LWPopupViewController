@@ -525,7 +525,7 @@
 				INFOPLIST_FILE = "LWPopupViewController/LWPopupViewController-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.farambi.LWPopupViewController-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
@@ -542,7 +542,7 @@
 				INFOPLIST_FILE = "LWPopupViewController/LWPopupViewController-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.farambi.LWPopupViewController-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;

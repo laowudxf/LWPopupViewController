@@ -161,10 +161,6 @@
     [self.view addSubview:view];
 //    view.userInteractionEnabled = true;
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapContentAction)];
-    [view addGestureRecognizer:tap];
-
-
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.view);
     }];
@@ -183,10 +179,6 @@ static char *popupViewControllerKey = "_popupViewController";
     
     objc_setAssociatedObject(obj, popupViewControllerKey, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     self.parentRetainer = obj;
-}
-
-- (void)tapContentAction {
-    
 }
 
 /*
