@@ -10,6 +10,8 @@
 #import "objc/runtime.h"
 #import <Masonry/Masonry.h>
 
+#import "LWPopupView.h"
+
 
 #define kWeakSelf(type)  __weak typeof(type) weak##type = type;
 #define kStrongSelf(type) __strong typeof(type) type = weak##type;
@@ -20,6 +22,13 @@
 
 @implementation LWPopupViewController
 
+- (void)loadView {
+    self.view = [LWPopupView new];
+}
+
+-(LWPopupView *)customView {
+    return (LWPopupView *)self.view;
+}
 
 - (instancetype)init
 {
@@ -34,7 +43,7 @@
 
 
 - (BOOL)prefersStatusBarHidden {
-    return  true;
+    return false;
 }
 
 - (void)viewDidLoad {
@@ -43,10 +52,31 @@
     [self addTargetAction];
     
     // Do any additional setup after loading the view.
+    
+    kWeakSelf(self)
+    [self customView].willMoveToSuperViewBlock = ^(UIView * _Nonnull parent) {
+        kStrongSelf(self)
+        
+        if (parent) {
+            self.view.alpha = 0;
+            [UIView animateWithDuration:0.2 animations:^{
+                self.view.alpha = 1;
+                [self endAppearanceTransition];
+            }];
+        } else {
+        }
+        
+    };
 }
 
 
+
 -(void) setupUI {
+    self.view.backgroundColor = self.bgViewColor;
+}
+
+-(void)setBgViewColor:(UIColor *)bgViewColor {
+    _bgViewColor = bgViewColor;
     self.view.backgroundColor = self.bgViewColor;
 }
 
@@ -55,45 +85,57 @@
     [self.view addGestureRecognizer:tap];
 }
 
+
+-(void)showWithView:(UIView *)view {
+    [view addSubview:self.view];
+    [self.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsZero);
+    }];
+}
+
 -(void)showWithViewController:(UIViewController *)viewController {
     
     if ([viewController isKindOfClass:UINavigationController.class]) {
-        [self convenRetain:viewController];
-    } else {
-        [viewController addChildViewController:self];
+        [self beginAppearanceTransition:true animated:true];
     }
+    [viewController addChildViewController:self];
     
-    [viewController.view addSubview:self.view];
-    [self.view mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.mas_equalTo(UIEdgeInsetsZero);
-        make.width.height.equalTo(viewController.view);
-        make.center.equalTo(viewController.view);
-    }];
+    [self showWithView:viewController.view];
+    
     if (self.parentViewController) {
         [self didMoveToParentViewController:viewController];
     }
 }
 
 
-- (void)willMoveToParentViewController:(UIViewController *)parent {
-    if (parent) {
-        self.view.alpha = 0;
-        [UIView animateWithDuration:0.2 animations:^{
-            self.view.alpha = 1;
-        }];
-    } else {
-    }
-}
+//- (void)willMoveToParentViewController:(UIViewController *)parent {
+//    if (parent) {
+//        self.view.alpha = 0;
+//        [UIView animateWithDuration:0.2 animations:^{
+//            self.view.alpha = 1;
+//            if ([parent isKindOfClass:UINavigationController.class]) {
+//                [self endAppearanceTransition];
+//            }
+//        }];
+//    } else {
+//    }
+//}
 
 -(void)hidden {
     kWeakSelf(self);
     if (self.parentViewController) {
+        if ([self.parentViewController isKindOfClass:UINavigationController.class]) {
+            [self beginAppearanceTransition:false animated:true];
+        }
         
+        [self willMoveToParentViewController:nil];
         [UIView animateWithDuration:0.2 animations:^{
             self.view.alpha = 0;
         } completion:^(BOOL finished) {
-            [self willMoveToParentViewController:nil];
             [self.view removeFromSuperview];
+            if ([self.parentViewController isKindOfClass:UINavigationController.class]) {
+                [self endAppearanceTransition];
+            }
             [self removeFromParentViewController];
         }];
         return;
@@ -155,10 +197,6 @@ static char *popupViewControllerKey = "_popupViewController";
 
 - (void)tapContentAction {
     
-}
-
--(void)dealloc {
-    NSLog(@"%@", self);
 }
 
 /*

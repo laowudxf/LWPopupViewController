@@ -18,12 +18,15 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)addContentView:(UIView *)view;
 -(void)addContentController:(UIViewController *)controller;
 
+
+
+
 -(void)showWithViewController:(UIViewController *)viewController;
+-(void)showWithView:(UIView *)view;
+-(void)hidden;
 
 //若直接add pop.view 如果pop没有强引用 则会立马释放掉，可以调用一下这个方法，便利的添加强引用
 -(void)convenRetain:(NSObject *)obj;
-
--(void)hidden;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -15,6 +15,28 @@
 
 @implementation CustomAlertViewController
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"viewWillAppear %@", self);
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSLog(@"viewDidAppear %@", self);
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    NSLog(@"viewWillDisappear %@", self);
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    NSLog(@"viewDidDisappear %@", self);
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -36,12 +58,14 @@
 */
 - (IBAction)cancel:(id)sender {
     if (self.clickEventBlock) {
+        NSLog(@"click cancel");
         self.clickEventBlock(0);
     }
 }
 - (IBAction)ensure:(id)sender {
     
     if (self.clickEventBlock) {
+        NSLog(@"click ensure");
         self.clickEventBlock(1);
     }
 }
