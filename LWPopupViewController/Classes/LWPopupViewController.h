@@ -30,6 +30,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 把popupViewController加载到View上面
 -(void)showWithView:(UIView *)view;
 
+
+/// 移除content 的居中约束
+-(void)removeContentContraint;
+
 ///隐藏
 -(void)hidden;
 

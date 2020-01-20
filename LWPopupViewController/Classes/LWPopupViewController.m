@@ -18,6 +18,7 @@
 
 @interface LWPopupViewController ()
 @property (nonatomic, weak) NSObject *parentRetainer;
+@property (nonatomic, strong) NSArray *contentContraint;
 @end
 
 @implementation LWPopupViewController
@@ -157,11 +158,21 @@
 
 }
 
+-(void)removeContentContraint {
+    if (!self.contentContraint) {
+        return;
+    }
+    
+    for (MASConstraint *c  in self.contentContraint) {
+        [c uninstall];
+    }
+}
+
 -(void)addContentView:(UIView *)view {
     [self.view addSubview:view];
 //    view.userInteractionEnabled = true;
     
-    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+   self.contentContraint = [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.view);
     }];
 }
