@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)showInViewController:(UIViewController *)viewcontroller;
 
 -(void)hidden;
+-(void)hidden:(void(^)(void))completeBlock;
 
 @end
 

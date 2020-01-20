@@ -34,6 +34,10 @@
     [self.popupViewController hidden];
 }
 
+-(void)hidden:(void(^)(void))completeBlock {
+    [self.popupViewController hidden:completeBlock];
+}
+
 -(void)dealloc{
     NSLog(@"%s",__func__);
 }

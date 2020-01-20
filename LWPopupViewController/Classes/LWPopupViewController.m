@@ -127,6 +127,10 @@
                 [self endAppearanceTransition];
             }
             [self removeFromParentViewController];
+            
+            if (self.dismissBlock) {
+                self.dismissBlock();
+            }
         }];
         return;
     } else if (self.presentingViewController) {
@@ -143,11 +147,29 @@
         } completion:^(BOOL finished) {
             [self.view removeFromSuperview];
             if (self.parentRetainer) {
-                objc_setAssociatedObject(self.parentRetainer, &popupViewControllerKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                NSMutableArray *container = objc_getAssociatedObject(self.parentRetainer, &popupViewControllerKey);
+                if (!container) {
+                    NSAssert(container != nil, @"something wrong, container should not be nil");
+                }
+                
+                [container removeObject:self];
+                if (container.count == 0) {
+                    objc_setAssociatedObject(self.parentRetainer, &popupViewControllerKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                }
+            }
+            
+            if (self.dismissBlock) {
+                self.dismissBlock();
             }
         }];
     }
 }
+
+-(void)hidden:(void(^)(void))completeBlock {
+    self.dismissBlock = completeBlock;
+    [self hidden];
+}
+
 -(void)tapAction {
     
     if (self.shouldDisableBgTap) {
@@ -188,7 +210,13 @@ static const int popupViewControllerKey = 0;
 
 -(void)convenRetain:(NSObject *) obj {
     
-    objc_setAssociatedObject(obj, &popupViewControllerKey, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    NSMutableArray *container = objc_getAssociatedObject(obj, &popupViewControllerKey);
+    if (!container) {
+        container = [NSMutableArray new];
+        objc_setAssociatedObject(obj, &popupViewControllerKey, container, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    [container addObject:self];
+    
     self.parentRetainer = obj;
 }
 

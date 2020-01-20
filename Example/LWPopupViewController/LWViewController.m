@@ -81,7 +81,9 @@
     kWeakSelf(pop)
     vc.clickEventBlock = ^(NSInteger index) {
         kStrongSelf(pop)
-        [pop hidden];
+        [pop hidden:^{
+            NSLog(@"隐藏完毕");
+        }];
     };
     
     if (indexPath.row == 0) {
@@ -116,10 +118,10 @@
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(100, 100));
         }];
-        
-//        pop = [LWPopupViewController new];
-//        [pop addContentView:view];
-//        [pop showWithViewController:self.navigationController];
+
+        pop = [LWPopupViewController new];
+        [pop addContentView:view];
+        [pop showWithViewController:self.navigationController];
     } else if (indexPath.row == 5) {
 
         [pop showWithView:[UIApplication sharedApplication].keyWindow];
