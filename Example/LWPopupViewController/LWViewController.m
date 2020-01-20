@@ -36,6 +36,7 @@
         @"居中ViewController(显示于navigation)",
         @"相对定位ViewController",
         @"居中View",
+        @"居中View(便利,默认显示到windows上)",
         @"直接加载到KeyWindow上",
         @"显示ViewController 带navigation",
     ];
@@ -109,11 +110,22 @@
         [pop addContentView:view];
         [pop showWithViewController:self.navigationController];
     } else if (indexPath.row == 4) {
+        
+        UIView *view = [UIView new];
+        view.backgroundColor = [UIColor blueColor];
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(100, 100));
+        }];
+        
+//        pop = [LWPopupViewController new];
+//        [pop addContentView:view];
+//        [pop showWithViewController:self.navigationController];
+    } else if (indexPath.row == 5) {
 
         [pop showWithView:[UIApplication sharedApplication].keyWindow];
         //注意！！！---如果pop没有被持有则在方法末尾被直接释放，可以方便的调用这个方法让pop被对象持有
         [pop convenRetain:self];
-    } else if (indexPath.row == 5) {
+    } else if (indexPath.row == 6) {
         pop = [LWPopupViewController new];
         CustomViewController *a = [CustomViewController new];
         

@@ -142,7 +142,7 @@
         } completion:^(BOOL finished) {
             [self.view removeFromSuperview];
             if (self.parentRetainer) {
-                objc_setAssociatedObject(self.parentRetainer, popupViewControllerKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                objc_setAssociatedObject(self.parentRetainer, &popupViewControllerKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
             }
         }];
     }
@@ -166,7 +166,7 @@
     }];
 }
 
-static char *popupViewControllerKey = "_popupViewController";
+static const int popupViewControllerKey = 0;
 
 -(void)addContentController:(UIViewController *)controller {
     [self addContentView:controller.view];
@@ -177,8 +177,12 @@ static char *popupViewControllerKey = "_popupViewController";
 
 -(void)convenRetain:(NSObject *) obj {
     
-    objc_setAssociatedObject(obj, popupViewControllerKey, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(obj, &popupViewControllerKey, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     self.parentRetainer = obj;
+}
+
+-(void)dealloc {
+    NSLog(@"%s", __func__);
 }
 
 /*

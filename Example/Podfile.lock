@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  LWPopupViewController: 8f4285da2b39da8817dad516e3f3bdef5ef77cd8
+  LWPopupViewController: a63b0a8484e75190c91bd4d61f9537fd250f0dad
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: 7f5a24a154528c7f99072cbd14e063ceb14ea80e
