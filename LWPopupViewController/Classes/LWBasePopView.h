@@ -13,15 +13,15 @@ NS_ASSUME_NONNULL_BEGIN
 @class LWPopupViewController;
 
 @interface LWBasePopView : UIView
+@property (nonatomic, copy) void (^hiddenComplete)(void);
 
 @property (nonatomic, weak) LWPopupViewController *popupViewController;
 
 -(void)show;
 -(void)showInView:(UIView *)view;
 -(void)showInViewController:(UIViewController *)viewcontroller;
-
 -(void)hidden;
--(void)hidden:(void(^)(void))completeBlock;
+//-(void)hidden:(void(^)(void))completeBlock;
 
 @end
 

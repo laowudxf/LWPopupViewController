@@ -14,6 +14,8 @@
 
 -(void)show {
     [self showInView:[UIApplication sharedApplication].keyWindow];
+    
+
 }
 
 -(void)showInView:(UIView *)view {
@@ -21,6 +23,13 @@
     [self.popupViewController addContentView:self];
     [self.popupViewController showWithView:view];
     [self.popupViewController convenRetain:[UIApplication sharedApplication]];
+    self.hiddenComplete?self.popupViewController.dismissBlock=self.hiddenComplete:nil;
+    
+}
+
+-(void)setHiddenComplete:(void (^)(void))hiddenComplete {
+    _hiddenComplete = hiddenComplete;
+    self.popupViewController.dismissBlock = hiddenComplete;
 }
 
 -(void)showInViewController:(UIViewController *)viewcontroller {
@@ -34,9 +43,12 @@
     [self.popupViewController hidden];
 }
 
--(void)hidden:(void(^)(void))completeBlock {
-    [self.popupViewController hidden:completeBlock];
-}
+//-(void)hidden:(void(^)(void))completeBlock {
+//    [self.popupViewController hidden:completeBlock];
+//    self.popupViewController.dismissBlock = ^{
+//        completeBlock();
+//    };
+//}
 
 -(void)dealloc{
     NSLog(@"%s",__func__);
