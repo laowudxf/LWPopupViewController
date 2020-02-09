@@ -268,6 +268,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = zhongzhiyuan;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = WLDWLVH5CY;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -520,6 +523,7 @@
 			baseConfigurationReference = AF1023CD9FC11EC4324EB57C /* Pods-LWPopupViewController_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = WLDWLVH5CY;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LWPopupViewController/LWPopupViewController-Prefix.pch";
 				INFOPLIST_FILE = "LWPopupViewController/LWPopupViewController-Info.plist";
@@ -537,6 +541,7 @@
 			baseConfigurationReference = 4B1A836D05A07455D0688B7B /* Pods-LWPopupViewController_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = WLDWLVH5CY;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LWPopupViewController/LWPopupViewController-Prefix.pch";
 				INFOPLIST_FILE = "LWPopupViewController/LWPopupViewController-Info.plist";

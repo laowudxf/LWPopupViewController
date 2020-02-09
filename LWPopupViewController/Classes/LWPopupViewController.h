@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "LWBasePopView.h"
+#import "LWPopupAnimationContainer.h"
+#import "LWPopupAnimationSheetStyle.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIColor *bgViewColor;
 @property (nonatomic, copy) void (^dismissBlock)(void);
 @property (nonatomic, assign) BOOL shouldDisableBgTap;
+@property (nonatomic, strong) LWPopupAnimationContainer *aniamtionContainer;
+
+@property (nonatomic, strong) UIView *contenteView;
 
 
 -(void)addContentView:(UIView *)view;

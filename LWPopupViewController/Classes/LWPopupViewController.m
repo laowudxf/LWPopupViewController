@@ -38,6 +38,7 @@
         self.bgViewColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
         [self setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
         [self setModalPresentationStyle:UIModalPresentationOverCurrentContext];
+        self.aniamtionContainer = [LWPopupAnimationContainer new];
     }
     return self;
 }
@@ -60,12 +61,14 @@
         
         if (parent) {
             self.view.alpha = 0;
-            [UIView animateWithDuration:0.2 animations:^{
-                self.view.alpha = 1;
-                if ([self.parentViewController isKindOfClass:[UINavigationController class]]) {
-                    [self endAppearanceTransition];
-                }
-            }];
+            self.aniamtionContainer.showAnimation(self, nil);
+//            [UIView animateWithDuration:0.2 animations:^{
+//                self.view.alpha = 1;
+//            }];
+            
+            if ([self.parentViewController isKindOfClass:[UINavigationController class]]) {
+                [self endAppearanceTransition];
+            }
         } else {
         }
         
@@ -119,9 +122,9 @@
         }
         
         [self willMoveToParentViewController:nil];
-        [UIView animateWithDuration:0.2 animations:^{
-            self.view.alpha = 0;
-        } completion:^(BOOL finished) {
+        
+        self.aniamtionContainer.hiddenAnimation(self, ^(BOOL b) {
+            kStrongSelf(self)
             [self.view removeFromSuperview];
             if ([self.parentViewController isKindOfClass:UINavigationController.class]) {
                 [self endAppearanceTransition];
@@ -131,7 +134,22 @@
             if (self.dismissBlock) {
                 self.dismissBlock();
             }
-        }];
+            
+        });
+        
+//        [UIView animateWithDuration:0.2 animations:^{
+//            self.view.alpha = 0;
+//        } completion:^(BOOL finished) {
+//            [self.view removeFromSuperview];
+//            if ([self.parentViewController isKindOfClass:UINavigationController.class]) {
+//                [self endAppearanceTransition];
+//            }
+//            [self removeFromParentViewController];
+//
+//            if (self.dismissBlock) {
+//                self.dismissBlock();
+//            }
+//        }];
         return;
     } else if (self.presentingViewController) {
         
@@ -142,9 +160,8 @@
             }
         }];
     } else {
-        [UIView animateWithDuration:0.2 animations:^{
-            self.view.alpha = 0;
-        } completion:^(BOOL finished) {
+        self.aniamtionContainer.hiddenAnimation(self, ^(BOOL b) {
+            kStrongSelf(self)
             [self.view removeFromSuperview];
             if (self.parentRetainer) {
                 NSMutableArray *container = objc_getAssociatedObject(self.parentRetainer, &popupViewControllerKey);
@@ -161,7 +178,27 @@
             if (self.dismissBlock) {
                 self.dismissBlock();
             }
-        }];
+        });
+//        [UIView animateWithDuration:0.2 animations:^{
+//            self.view.alpha = 0;
+//        } completion:^(BOOL finished) {
+//            [self.view removeFromSuperview];
+//            if (self.parentRetainer) {
+//                NSMutableArray *container = objc_getAssociatedObject(self.parentRetainer, &popupViewControllerKey);
+//                if (!container) {
+//                    NSAssert(container != nil, @"something wrong, container should not be nil");
+//                }
+//
+//                [container removeObject:self];
+//                if (container.count == 0) {
+//                    objc_setAssociatedObject(self.parentRetainer, &popupViewControllerKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//                }
+//            }
+//
+//            if (self.dismissBlock) {
+//                self.dismissBlock();
+//            }
+//        }];
     }
 }
 
@@ -192,6 +229,7 @@
 
 -(void)addContentView:(UIView *)view {
     [self.view addSubview:view];
+    self.contenteView = view;
 //    view.userInteractionEnabled = true;
     
    self.contentContraint = [view mas_makeConstraints:^(MASConstraintMaker *make) {
