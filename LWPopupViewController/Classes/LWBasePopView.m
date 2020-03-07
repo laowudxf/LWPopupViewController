@@ -20,9 +20,10 @@
 
 -(void)showInView:(UIView *)view {
     LWPopupViewController *v = [LWPopupViewController new];
-    [self.popupViewController addContentView:self];
-    [self.popupViewController showWithView:view];
-    [self.popupViewController convenRetain:[UIApplication sharedApplication]];
+    [v addContentView:self];
+    [v showWithView:view];
+    [v convenRetain:[UIApplication sharedApplication]];
+    self.popupViewController = v;
     self.hiddenComplete?self.popupViewController.dismissBlock=self.hiddenComplete:nil;
     
 }
