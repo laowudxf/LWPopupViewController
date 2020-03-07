@@ -19,7 +19,7 @@
 }
 
 -(void)showInView:(UIView *)view {
-    self.popupViewController = [LWPopupViewController new];
+    LWPopupViewController *v = [LWPopupViewController new];
     [self.popupViewController addContentView:self];
     [self.popupViewController showWithView:view];
     [self.popupViewController convenRetain:[UIApplication sharedApplication]];
