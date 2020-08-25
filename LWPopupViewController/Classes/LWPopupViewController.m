@@ -234,7 +234,13 @@
     
    self.contentContraint = [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.view);
-    }];
+   }];
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contentViewTap)];
+    [view addGestureRecognizer:tap];
+    
+}
+-(void)contentViewTap {
+    
 }
 
 static const int popupViewControllerKey = 0;

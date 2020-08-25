@@ -1,5 +1,5 @@
 PODS:
-  - LWPopupViewController (0.2.3):
+  - LWPopupViewController (0.2.4):
     - Masonry
   - Masonry (1.1.0)
 
@@ -15,9 +15,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  LWPopupViewController: c0dfa60c0196a76d9f380450328703f4b8bf7d25
+  LWPopupViewController: d4ffb5d2ca48d6d94b672d17ff240b3ebdbc31f3
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: 7f5a24a154528c7f99072cbd14e063ceb14ea80e
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3
