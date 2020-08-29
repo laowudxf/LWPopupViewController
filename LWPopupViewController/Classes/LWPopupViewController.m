@@ -236,6 +236,7 @@
         make.center.equalTo(self.view);
    }];
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contentViewTap)];
+    tap.cancelsTouchesInView = false;
     [view addGestureRecognizer:tap];
     
 }
